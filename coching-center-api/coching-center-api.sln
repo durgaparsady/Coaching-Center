@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37328.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coching-center-api", "coching-center-api.csproj", "{6D30ECBC-F53D-87F3-0CA0-E1F824E0B5D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D30ECBC-F53D-87F3-0CA0-E1F824E0B5D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D30ECBC-F53D-87F3-0CA0-E1F824E0B5D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D30ECBC-F53D-87F3-0CA0-E1F824E0B5D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D30ECBC-F53D-87F3-0CA0-E1F824E0B5D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB4B7DCD-1F4C-4272-9057-E6411E269166}
+	EndGlobalSection
+EndGlobal
