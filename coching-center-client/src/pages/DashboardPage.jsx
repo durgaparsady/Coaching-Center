@@ -23,7 +23,7 @@ function DashboardPage() {
           <strong>{courses.length}</strong>
         </article>
         <article className="stat-card">
-          <span>Total Students</span>
+          <span>Total Students Test</span>
           <strong>{students.length}</strong>
         </article>
         <article className="stat-card">
