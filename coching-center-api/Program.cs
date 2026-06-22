@@ -1,24 +1,41 @@
 using System.Text;
+using coching_center_api.Configuration;
 using coching_center_api.Data;
 using coching_center_api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+
+//using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+//builder.Services.AddDbContext<AppDbContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<JwtTokenService>();
+
+var corsSection = builder.Configuration.GetSection(CorsSettings.SectionName);
+builder.Services
+    .AddOptions<CorsSettings>()
+    .Bind(corsSection)
+    .Validate(
+        settings => settings.AllowedOrigins.Length > 0,
+        $"{CorsSettings.SectionName}:AllowedOrigins must contain at least one origin.")
+    .ValidateOnStart();
+
+var corsSettings = corsSection.Get<CorsSettings>() ?? new CorsSettings();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("Frontend", policy =>
+    options.AddPolicy(CorsSettings.PolicyName, policy =>
     {
         policy
-            .WithOrigins("http://localhost:5173")
+            .WithOrigins(corsSettings.AllowedOrigins)
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -61,7 +78,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors("Frontend");
+app.UseCors(CorsSettings.PolicyName);
 app.UseAuthentication();
 app.UseAuthorization();
 
