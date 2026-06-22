@@ -1,0 +1,50 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Test Results
+TestResults/
+*.trx
+
+# NuGet
+packages/
+*.nupkg
+
+# Publish Output
+publish/
+
+# Environment & Secrets
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# Certificates
+*.pfx
+*.key
+*.crt
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary Files
+tmp/
+temp/
+*.tmp

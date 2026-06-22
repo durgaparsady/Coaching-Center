@@ -1,0 +1,225 @@
+:root {
+  --bg: #f4efe6;
+  --bg-soft: #fff8ee;
+  --ink: #192126;
+  --ink-soft: #4f5c66;
+  --brand: #d55b2a;
+  --brand-strong: #b84415;
+  --danger: #ad2f30;
+  --line: #dbc9b5;
+  --card: #fff;
+  --shadow: 0 20px 40px rgba(29, 29, 31, 0.1);
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 20% 0, #ffe8c7, #f4efe6 40%, #efe4d7 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.shell {
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(92deg, #1f2f3a, #2f4d61);
+  color: #f7f5f0;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.topbar-right {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+}
+
+.sidebar {
+  background: var(--bg-soft);
+  border-right: 1px solid var(--line);
+  min-height: calc(100vh - 67px);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar a {
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  color: var(--ink-soft);
+  transition: all 0.2s ease;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background: #ffe6cc;
+  color: #6b230b;
+}
+
+.main-panel {
+  padding: 1.25rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.stat-card span {
+  display: block;
+  color: var(--ink-soft);
+}
+
+.stat-card strong {
+  font-size: 1.7rem;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.login-card {
+  width: min(430px, 100%);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.grid-form {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.grid-form input,
+.grid-form select {
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #c6b8a5;
+  background: #fffdfa;
+}
+
+.course-form,
+.student-form {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 1rem;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  border: 0;
+  border-radius: 8px;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--brand-strong);
+}
+
+.btn-secondary {
+  background: #dde4e9;
+  color: #21313e;
+}
+
+.btn-danger {
+  background: #f7d7d8;
+  color: var(--danger);
+}
+
+.error {
+  color: var(--danger);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 0.65rem;
+  border-bottom: 1px solid #ebdfd1;
+  text-align: left;
+}
+
+.inline-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    min-height: auto;
+    border-bottom: 1px solid var(--line);
+    border-right: 0;
+    flex-direction: row;
+    overflow: auto;
+  }
+
+  .course-form,
+  .student-form {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
