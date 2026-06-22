@@ -19,7 +19,7 @@ function DashboardPage() {
       <h2>Overview</h2>
       <div className="card-grid">
         <article className="stat-card">
-          <span>Total Courses</span>
+          <span>Total Courses test</span>
           <strong>{courses.length}</strong>
         </article>
         <article className="stat-card">
